@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: client-user
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.106.150.146:8848
+server:
+  servlet:
+    context-path: /user
+  port: 8081
+
+
+remote:
+  order:
+    url:
+      pre: http://client-order
+      get-service-name: /order/test
+

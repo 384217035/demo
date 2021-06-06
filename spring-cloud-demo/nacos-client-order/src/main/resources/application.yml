@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: client-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.106.150.146:8848
+server:
+  servlet:
+    context-path: /order
+  port: 8082
