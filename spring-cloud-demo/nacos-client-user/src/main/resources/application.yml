@@ -5,12 +5,13 @@ spring:
     nacos:
       discovery:
         server-addr: 47.106.150.146:8848
+        namespace: nacos-client
+      config:
+        server-addr: 47.106.150.146:8848
 server:
   servlet:
     context-path: /user
   port: 8081
-
-
 remote:
   order:
     url:

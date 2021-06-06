@@ -3,11 +3,12 @@ spring:
     name: client-order
   cloud:
     nacos:
-      discovery:
+      config:
+        file-extension: yml
         server-addr: 47.106.150.146:8848
         namespace: nacos-client
-      config:
-        server-addr: 47.106.150.146:8848
+        prefix: client-order
+        group: client
 server:
   servlet:
     context-path: /order
