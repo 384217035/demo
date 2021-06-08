@@ -1,14 +1,10 @@
 spring:
-  application:
-    name: client-order
   cloud:
     nacos:
       discovery:
         server-addr: 47.106.150.146:8848
         namespace: nacos-client
-      config:
-        server-addr: 47.106.150.146:8848
 server:
   servlet:
-    context-path: /order
+    context-path: /nacos-client-order
   port: 8082

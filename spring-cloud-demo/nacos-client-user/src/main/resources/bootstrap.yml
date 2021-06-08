@@ -1,13 +1,13 @@
 spring:
   application:
-    name: nacos-client-order
+    name: nacos-client-user
   cloud:
     nacos:
       config:
         server-addr: 47.106.150.146:8848
         file-extension: yaml
         namespace: nacos-client
-        prefix: nacos-client-order
+        prefix: nacos-client-user
         group: dev
   profiles:
     active: dev

@@ -1,20 +1,16 @@
 spring:
-  application:
-    name: client-user
   cloud:
     nacos:
       discovery:
         server-addr: 47.106.150.146:8848
         namespace: nacos-client
-      config:
-        server-addr: 47.106.150.146:8848
 server:
   servlet:
-    context-path: /user
+    context-path: /nacos-client-user
   port: 8081
 remote:
   order:
     url:
-      pre: http://client-order
-      get-service-name: /order/test
+      pre: http://nacos-client-order
+      get-service-name: /nacos-client-order/test
 
