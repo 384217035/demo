@@ -1,9 +1,6 @@
 spring:
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 47.106.150.146:8848
-        namespace: nacos-client
+  application:
+    name: nacos-client-order
 server:
   servlet:
     context-path: /nacos-client-order
