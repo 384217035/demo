@@ -1,26 +1,37 @@
 spring:
-  application:
-    name: nacos-client-user
   cloud:
     nacos:
+      config:
+        server-addr: 47.106.150.146:8848
+        namespace: 96d6024c-5c4c-4c8c-a9b2-b80e9ccc3873
+        group: nacos-client
+        file-extension: yaml
+        shared-configs[0]:
+          data-id: common-jdbc.yaml
+          group: nacos-client
+          refresh: true
+        shared-configs[1]:
+          data-id: common-redis.yaml
+          group: nacos-client
+          refresh: true
+  # prefix: nacos-client-order
       # nacos 服务发现 服务
       discovery:
         # nacos-sever ip
         server-addr: 47.106.150.146:8848
         # nacos 命名空间, 可以按环境进行区分
-        namespace: 7489fb84-6caa-4bff-8568-7a8f2130e34c
+        namespace: 96d6024c-5c4c-4c8c-a9b2-b80e9ccc3873
         # 对应的组名，不同组名服务不能相互发现
         group: nacos-client
         # 集群名称，相同名称集群还是可以通信的。。可以根据集群名称定于通信集群的优先级
-        cluster-name: SH
+        cluster-name: SZ
         # 服务权重， 数值越大权重越大
-        weight: 10
+        weight: 1
         # map格式配置, 配置自定义的服务相关元数据
         metadata:
-          server-number: 1
-          server-valid: true
+          server-env: local
         # 日志文件名
-        log-name: nacos-client-user.log
+        # log-name: nacos-client-order.log
         # 上阿里云时, 阿里云的云账号名
         # access-key: XXX
         # 上阿里云时, 阿里云的云账号密码
@@ -31,13 +42,3 @@ spring:
         # ip: XX.XX.XX.XX
         # 配置服务端端口
         # port: XXX
-server:
-  servlet:
-    context-path: /nacos-client-user
-  port: 8081
-remote:
-  order:
-    url:
-      pre: http://nacos-client-order
-      get-service-name: /nacos-client-order/test
-

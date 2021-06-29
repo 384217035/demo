@@ -3,6 +3,7 @@ package com.hsc;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * @author : heshanchi
@@ -15,7 +16,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 public class Starter {
 
     public static void main(String[] args) {
-        SpringApplication.run(Starter.class, args);
+        ConfigurableApplicationContext applicationContext = SpringApplication.run(Starter.class, args);
+        System.out.println(applicationContext.getEnvironment().getProperty("jdbc.url"));
+        System.out.println(applicationContext.getEnvironment().getProperty("redis.url"));
     }
 
 }

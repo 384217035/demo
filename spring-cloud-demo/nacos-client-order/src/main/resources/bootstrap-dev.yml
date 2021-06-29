@@ -1,21 +1,19 @@
 spring:
-  application:
-    name: nacos-client-order
   cloud:
     nacos:
-#      config:
-#        server-addr: 47.106.150.146:8848
-#        file-extension: yaml
-#        namespace: nacos-client
-#        prefix: nacos-client-order
-#        group: dev
-
-      # nacos 服务发现 服务
-      discovery:
-        # nacos-sever ip
+      config:
         server-addr: 47.106.150.146:8848
-        # nacos 命名空间, 可以按环境进行区分
-        namespace: nacos-dev
+        namespace: 96d6024c-5c4c-4c8c-a9b2-b80e9ccc3873
+        group: nacos-client
+        file-extension: yaml
+        # prefix: nacos-client-order
+        shared-configs[0]:
+          data-id: common-jdbc.yaml
+          group: nacos-client
+          refresh: true
+      discovery:                                # nacos 服务发现 服务
+        server-addr: 47.106.150.146:8848        # nacos-sever ip
+        namespace: 96d6024c-5c4c-4c8c-a9b2-b80e9ccc3873     # nacos 命名空间, 可以按环境进行区分
         # 对应的组名，不同组名服务不能相互发现
         group: nacos-client
         # 集群名称，相同名称集群还是可以通信的。。可以根据集群名称定于通信集群的优先级
@@ -24,10 +22,9 @@ spring:
         weight: 10
         # map格式配置, 配置自定义的服务相关元数据
         metadata:
-          server-number: 1
-          server-valid: true
+          server-env: dev
         # 日志文件名
-        log-name: nacos-client-order.log
+        # log-name: nacos-client-order.log
         # 上阿里云时, 阿里云的云账号名
         # access-key: XXX
         # 上阿里云时, 阿里云的云账号密码

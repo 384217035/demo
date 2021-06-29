@@ -22,7 +22,7 @@ spring:
         # 集群名称，相同名称集群还是可以通信的。。可以根据集群名称定于通信集群的优先级
         cluster-name: SZ
         # 服务权重， 数值越大权重越大
-        weight: 10
+        weight: 1
         # map格式配置, 配置自定义的服务相关元数据
         metadata:
           server-env: test

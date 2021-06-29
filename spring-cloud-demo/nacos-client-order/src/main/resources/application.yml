@@ -1,7 +1,0 @@
-spring:
-  application:
-    name: nacos-client-order
-server:
-  servlet:
-    context-path: /nacos-client-order
-  port: 8082
