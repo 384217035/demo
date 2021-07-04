@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: gateway
+  profiles:
+    active: @profileActive@
+server:
+  port: 8888

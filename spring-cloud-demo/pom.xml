@@ -11,10 +11,12 @@
     <modules>
         <module>nacos-client-user</module>
         <module>nacos-client-order</module>
+        <module>spring-cloud-gateway-demo</module>
     </modules>
 
     <properties>
-        <spring.boot.version>2.3.7.RELEASE</spring.boot.version>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
         <spring.cloud.alibaba.version>2.2.5.RELEASE</spring.cloud.alibaba.version>
     </properties>
 
@@ -26,8 +28,16 @@
     </parent>
 
     <dependencyManagement>
-        <!-- 引入 spring-cloud-alibaba 一整套依赖 -->
+
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- 引入 spring-cloud-alibaba 一整套依赖 -->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -115,5 +125,6 @@
             </properties>
         </profile>
     </profiles>
+
 
 </project>
