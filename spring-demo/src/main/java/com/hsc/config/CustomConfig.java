@@ -20,7 +20,7 @@ import org.springframework.context.annotation.DependsOn;
     @Configuration表示这个类是一个配置类, 在@Configuration注释的类下面, @Bean才会成功
     为了保持 @Bean方法出来的 Bean是单例bean, 呗 @Configuration 都会被代理
  */
-@Configuration
+//@Configuration
 public class CustomConfig {
 
     @Autowired

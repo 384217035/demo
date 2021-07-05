@@ -38,6 +38,10 @@ import org.springframework.context.annotation.*;
  */
 @PropertySource(value = {"classpath:custom.properties"})
 
+/*
+ * 表示切面可以进行自动代理
+ */
+@EnableAspectJAutoProxy
 public class AppConfig {
 
 

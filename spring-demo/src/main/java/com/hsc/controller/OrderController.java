@@ -34,10 +34,10 @@ public class OrderController {
 
     // @Autowired 自动注入, 加上@Qualifier指定注入 beanName 的bean
     @Autowired
-    @Qualifier("orderService")
+    //@Qualifier("orderService")
 
     // @Resource 相当于 上面两个注解结合, 但是本身是Java自带注解, 通过name 指定注入beanName
-    @Resource(name = "orderService")
+    //@Resource(name = "orderService")
     private OrderService orderService;
 
 

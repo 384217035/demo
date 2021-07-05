@@ -21,13 +21,8 @@ public class SpringApplicationStart {
 //        System.out.println(userController.getName());
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-        String[] beanDefinitionNames = context.getBeanDefinitionNames();
-        for (String beanDefinitionName : beanDefinitionNames) {
-            System.out.println(context.getBean(beanDefinitionName));
-        }
         OrderController orderController = context.getBean(OrderController.class);
-        XmlBeanExample bean = context.getBean(XmlBeanExample.class);
-        context.destroy();
+        System.out.println(orderController.getOrder());
     }
 
 }

@@ -2,6 +2,7 @@ package com.hsc.service.impl;
 
 import com.hsc.dao.OrderDao;
 import com.hsc.service.OrderService;
+import common.MyException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public String getOrder() {
-        return orderDao.getOrder();
+        throw new MyException();
+        //return orderDao.getOrder();
     }
 
 }
