@@ -1,18 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!-- 指定扫包路径 -->
+    <context:component-scan base-package="com.hsc"/>
 
+    <!-- 定义 bean 的信息 -->
+    <!-- id为 BeanName, class 为需要给Spring管理的类, 下面是通过 set 方式给类的属性进行注入 -->
     <bean id="userDao" class="com.hsc.dao.impl.UserDaoImpl"/>
-
     <bean id="userService" class="com.hsc.service.impl.UserServiceImpl">
         <property name="userDao" ref="userDao"/>
     </bean>
-
     <bean id="userController" class="com.hsc.controller.UserController">
         <property name="userService" ref="userService"/>
+    </bean>
+
+    <!--
+        id: beanName
+        class: 给Spring管理的全限定类型名
+        name: bean的别名
+        scope: 备案的作用域
+        lazy=init: 是否懒加载
+        depend-on: 依赖bean
+        init-method: bean初始化后执行方法
+        destory-method: bean被注销前执行方法
+        primary: 是否为 主要的类
+        autowire: 是否自动注入, 有 byType/byName/constructor/no/default ,其中default就是no
+        autowire-candidate:是否可以被自动注入
+    -->
+    <bean id="xmlBeanExample" class="com.hsc.config.XmlBeanExample" name="beanExample"
+          scope="singleton" lazy-init="true" depends-on="userDao"
+          init-method="initMethod" destroy-method="destoryMethod" primary="true"
+          autowire="byType" autowire-candidate="true">
+        <!-- 构造方法创建笨啊 -->
+        <constructor-arg name="list">
+            <array>
+                <value>aaa</value>
+                <value>bbb</value>
+                <value>ccc</value>
+                <value>ddd</value>
+            </array>
+        </constructor-arg>
+        <property name="map">
+            <props>
+                <prop key="aaa">aaaa</prop>
+                <prop key="bbb">bbbb</prop>
+                <prop key="ccc">cccC</prop>
+                <prop key="ddd">dddd</prop>
+            </props>
+        </property>
     </bean>
 
 </beans>

@@ -1,5 +1,6 @@
 package com.hsc;
 
+import com.hsc.config.XmlBeanExample;
 import com.hsc.controller.OrderController;
 import com.hsc.controller.UserController;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -20,9 +21,13 @@ public class SpringApplicationStart {
 //        System.out.println(userController.getName());
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        String[] beanDefinitionNames = context.getBeanDefinitionNames();
+        for (String beanDefinitionName : beanDefinitionNames) {
+            System.out.println(context.getBean(beanDefinitionName));
+        }
         OrderController orderController = context.getBean(OrderController.class);
-        // context.destroy();
-        context.stop();
+        XmlBeanExample bean = context.getBean(XmlBeanExample.class);
+        context.destroy();
     }
 
 }
