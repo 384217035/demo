@@ -1,4 +1,4 @@
-package common;
+package com.hsc.common;
 
 /**
  * @ProjectName: spring-cloud-demo

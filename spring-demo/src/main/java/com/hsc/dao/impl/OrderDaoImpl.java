@@ -16,4 +16,9 @@ public class OrderDaoImpl implements OrderDao {
     public String getOrder() {
         return "order";
     }
+
+    @Override
+    public String getOrderById(String id) {
+        return "order:" + id;
+    }
 }

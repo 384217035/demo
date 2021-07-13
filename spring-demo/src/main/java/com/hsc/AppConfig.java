@@ -40,8 +40,10 @@ import org.springframework.context.annotation.*;
 
 /*
  * 表示切面可以进行自动代理
+ * *    proxyTargetClass: 默认为 false ,使用 jdk动态代理模式, 配置为 true 时则使用 cglib 动态代理模式
+ * *    exposeProxy: 是否保留代理类. 默认为 false , 如果为true 。可以通过 AopContext 获取当前执行类类的代理类
  */
-@EnableAspectJAutoProxy
+@EnableAspectJAutoProxy(proxyTargetClass = false, exposeProxy = false)
 public class AppConfig {
 
 

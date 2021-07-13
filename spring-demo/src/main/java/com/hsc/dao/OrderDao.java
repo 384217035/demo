@@ -11,4 +11,5 @@ public interface OrderDao {
 
     String getOrder();
 
+    String getOrderById(String id);
 }

@@ -9,6 +9,8 @@
     <!-- 指定扫包路径 -->
     <context:component-scan base-package="com.hsc"/>
 
+    <import resource="spring-aop.xml"/>
+
     <!-- 定义 bean 的信息 -->
     <!-- id为 BeanName, class 为需要给Spring管理的类, 下面是通过 set 方式给类的属性进行注入 -->
     <bean id="userDao" class="com.hsc.dao.impl.UserDaoImpl"/>

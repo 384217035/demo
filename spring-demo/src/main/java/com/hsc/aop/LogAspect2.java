@@ -7,22 +7,21 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
- * @ProjectName: spring-cloud-demo
- * @ClassName: LogAspect
+ * @ProjectName: demo
+ * @ClassName: LogAspect2
  * @Author: heshanchi
- * @CreateDate: 2021/7/5
+ * @CreateDate: 2021/7/13
  * @Description:
  */
 @Aspect
 //@Component
-@Order(1)
-public class LogAspect{
-
+@Order(2)
+public class LogAspect2 {
 
     @Around(value = "execution(public * com.hsc.service.impl.*.*(..))")
     public Object logRecord(ProceedingJoinPoint joinPoint) {
         long start = System.currentTimeMillis();
-        System.out.println(" 环绕通知开始 ....");
+        System.out.println(" 2 -- 环绕通知开始 ....");
         Object result = null;
         try {
             Object[] args = joinPoint.getArgs();
@@ -32,7 +31,7 @@ public class LogAspect{
             throwable.printStackTrace();
         }
         // 日志信息上报等等.....
-        System.out.println(" 环绕通知结束, 耗时: {"+ (System.currentTimeMillis() - start) +"ms} ....");
+        System.out.println(" 2 -- 环绕通知结束, 耗时: {"+ (System.currentTimeMillis() - start) +"ms} ....");
         return result;
     }
 

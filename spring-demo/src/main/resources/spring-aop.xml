@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 注入 切面方法存放的类 -->
+    <bean id="xmlAspect" class="com.hsc.aop.XmlAspect"/>
+
+
+    <!-- xml 方式开启 aop自动注入 两种写法 -->
+    <!-- <aop:aspectj-autoproxy proxy-target-class="false" expose-proxy="true"/>-->
+     <aop:config proxy-target-class="false" expose-proxy="false">
+
+         <!-- 指定多切面共有切点 -->
+         <aop:pointcut id="myPointcut" expression="execution(public * com.hsc.service.impl.*.*(..))"/>
+
+         <!-- 指定切面信息, 相当于注解 @Aspect -->
+         <aop:aspect id="myaspect1" ref="xmlAspect">
+             <aop:pointcut id="myPointcut2" expression="execution(public * com.hsc.service.impl.*.*(..)) and args(id)"/>
+
+             <aop:before method="testXmlBefore" pointcut-ref="myPointcut"/>
+             <aop:before method="testXmlBeforeWithId" pointcut-ref="myPointcut2" arg-names="id"/>
+             <aop:after method="testXmlAfter" pointcut-ref="myPointcut"/>
+             <aop:after-returning method="testXmlAfterReturn" pointcut="execution(public * com.hsc.service.impl.*.*(..))" returning="result"/>
+             <aop:after-throwing method="testXmlAfterException" pointcut="execution(public * com.hsc.service.impl.*.*(..))" throwing="e"/>
+         </aop:aspect>
+
+     </aop:config>
+
+</beans>

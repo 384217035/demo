@@ -11,4 +11,5 @@ public interface OrderService {
 
     String getOrder();
 
+    String getOrderById(String id);
 }

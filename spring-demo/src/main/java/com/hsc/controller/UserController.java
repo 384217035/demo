@@ -1,6 +1,9 @@
 package com.hsc.controller;
 
+import com.hsc.dao.entry.User;
 import com.hsc.service.UserService;
+
+import java.util.List;
 
 /**
  * @ProjectName: spring-cloud-demo
@@ -13,9 +16,30 @@ public class UserController {
 
     private UserService userService;
 
-    public String getName(){
+    public String getName() {
         return userService.getName();
     }
+
+    public String getNameById(Integer id) {
+        return userService.getNameById(id);
+    }
+
+    public List<User> getAllUser() {
+        return userService.getAllUser();
+    }
+
+    public int insertUser(User user) {
+        return userService.inserUser(user);
+    }
+
+    public int updatetUser(User user) {
+        return userService.updatetUser(user);
+    }
+
+    public int deleteUser(Integer id){
+        return userService.deleteUser(id);
+    }
+
 
     public UserService getUserService() {
         return userService;

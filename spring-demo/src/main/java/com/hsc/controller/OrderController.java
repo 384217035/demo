@@ -47,6 +47,12 @@ public class OrderController {
         return order;
     }
 
+    public String getOrderById(String id) {
+        String order = orderService.getOrderById(id);
+        System.out.println(order);
+        return order;
+    }
+
     /**
      * @PostConstruct
      *  * 表示当这个类被初始化之后, 执行的方法, == init-method
